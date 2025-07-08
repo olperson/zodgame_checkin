@@ -170,8 +170,3 @@ if __name__ == "__main__":
             print(f"✅ 账号 {idx} 完成签到和任务")
         except Exception as e:
             print(f"❌ 账号 {idx} 出现错误: {e}")
-
-    cookie_string = sys.argv[1]
-    assert cookie_string
-    
-    zodgame(cookie_string)
