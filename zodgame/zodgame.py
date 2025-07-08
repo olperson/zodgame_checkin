@@ -146,9 +146,12 @@ def zodgame(cookie_string):
     WebDriverWait(driver, 240).until(
         lambda x: x.title != "Just a moment..."
     )
-    assert len(driver.find_elements(By.XPATH, '//a[text()="用户名"]')) == 0, "Login fails. Please check your cookie."
+    try:
+        formhash = driver.find_element(By.XPATH, '//input[@name="formhash"]').get_attribute('value')
+    except:
+        raise Exception("Login failed. 请检查 Cookie 是否正确。")
+
         
-    formhash = driver.find_element(By.XPATH, '//input[@name="formhash"]').get_attribute('value')
     assert zodgame_checkin(driver, formhash) and zodgame_task(driver, formhash), "Checkin failed or task failed."
 
     driver.close()
