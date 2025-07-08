@@ -155,6 +155,20 @@ def zodgame(cookie_string):
     driver.quit()
     
 if __name__ == "__main__":
+    assert len(sys.argv) > 1, "请传入至少一个 cookie 字符串"
+    raw_cookie_string = sys.argv[1]
+
+    cookie_list = [ck.strip() for ck in raw_cookie_string.split("&") if ck.strip()]
+    assert cookie_list, "未找到有效的 cookie"
+
+    for idx, cookie in enumerate(cookie_list, 1):
+        print(f"\n===== 开始执行账号 {idx} =====")
+        try:
+            zodgame(cookie)
+            print(f"✅ 账号 {idx} 完成签到和任务")
+        except Exception as e:
+            print(f"❌ 账号 {idx} 出现错误: {e}")
+
     cookie_string = sys.argv[1]
     assert cookie_string
     
