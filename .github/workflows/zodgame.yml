@@ -20,5 +20,5 @@ jobs:
         pip3 install -r ./zodgame/requirements.txt
     - name: Run 
       run: |
-        python3 ./zodgame/zodgame.py "${{secrets.ZODGAME_COOKIE1}}" "${{secrets.ZODGAME_COOKIE2}}"
+        python3 ./zodgame/zodgame.py "${{secrets.ZODGAME_COOKIE}}"
     - uses: liskin/gh-workflow-keepalive@main
