@@ -125,7 +125,6 @@ def zodgame(cookie_string):
 
     if cookie_string.startswith("cookie:"):
         cookie_string = cookie_string[len("cookie:"):]
-    cookie_string = cookie_string.replace("/","%2")
     cookie_dict = [ 
         {"name" : x.split('=')[0].strip(), "value": x.split('=')[1].strip()} 
         for x in cookie_string.split(';')
