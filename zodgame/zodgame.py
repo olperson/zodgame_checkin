@@ -2,6 +2,7 @@
 import io
 import re
 import sys
+import time
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf-8')
 
 import undetected_chromedriver as uc
@@ -170,3 +171,7 @@ if __name__ == "__main__":
             print(f"✅ 账号 {idx} 完成签到和任务")
         except Exception as e:
             print(f"❌ 账号 {idx} 出现错误: {e}")
+                
+        if idx != len(cookie_list):
+            print("⏳ 等待 10 秒后继续下一个账号...\n")
+            time.sleep(10)
