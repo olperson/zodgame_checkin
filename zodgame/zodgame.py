@@ -173,5 +173,5 @@ if __name__ == "__main__":
             print(f"❌ 账号 {idx} 出现错误: {e}")
                 
         if idx != len(cookie_list):
-            print("⏳ 等待 10 秒后继续下一个账号...\n")
-            time.sleep(10)
+            print("⏳ 等待 300 秒后继续下一个账号...\n")
+            time.sleep(300)
